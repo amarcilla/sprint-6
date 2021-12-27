@@ -11,7 +11,7 @@ Vue.component('botons', {
     props: ['frasesEscena','sentencia'],    
     data(){
       return{
-        current: 1
+        current: 2
       }
     },
         mounted(){

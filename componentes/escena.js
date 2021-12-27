@@ -2,7 +2,7 @@ Vue.component('escena', {
 
     template: //html
     `
-    <div >
+    <div  >
     <h4>Escena</h4>    
      <ul class="list-group">
        <li 
@@ -10,7 +10,8 @@ Vue.component('escena', {
           :Key="i"
           :class="{active: i=== seleccion } "
         class="list-group-item rounded-pill p-1 m-2 border-1 " >
-        {{ frase.title }}          
+        {{ frase.title }}
+        <img width="100" v-bind:src="frase.imatge" v-bind:alt="frase.title"/>          
        </li>
     </ul>
     seleccion: {{ seleccion }}   
