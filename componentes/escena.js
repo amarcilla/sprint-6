@@ -14,6 +14,6 @@ Vue.component('escena', {
     </ul>    
     </div>
     `,   
-    props: ['frasesEscena','seleccion'],                  
+    props: ['frasesEscena','seleccion','num'],                  
     },    
 )
