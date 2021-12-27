@@ -1,11 +1,15 @@
 Vue.component('home', {
     template: ` 
-    <div style="background-image:url('img/1.jpg'); background-repeat:no-repeat; background-size: 100%  ">
-    <h2>Component Home</h2>    
-    <!-- Estem llegint el que ens esta retornant el fill:botons -->
-    <botons @currentSentence="sentence=$event"></botons>
-    {{ sentence }}
-    <escena :frasesEscena="frases" :seleccion="sentence" ></escena>    
+    <!-- style="v-bind:background-image:url('img/.jpg'); background-repeat:no-repeat; background-size: 100%  " -->
+    
+    <div >        
+       <!-- Estem llegint el que ens esta retornant el fill:botons -->      
+       <botons  @currentSentence="sentence=$event"></botons>      
+        <div v-for="(frase,i) in frases" >                     
+          <div id=principal v-if="i=== sentence"  v-bind:style="{ 'background-image': 'url(' + frase.imatge + ')' }">              
+              <escena v-if="i=== sentence" :frasesEscena="frases" :seleccion="sentence" @currentImatge="imatge=$event" ></escena>            
+          </div>          
+        </div>                                
     </div>
     `,
     data() {     
@@ -28,7 +32,8 @@ Vue.component('home', {
                     imatge: "img/4.jpg"
                 }
             ],
-            sentence: '',
+            sentence: 0,
+            imatge:'',
         };
     },
 });
