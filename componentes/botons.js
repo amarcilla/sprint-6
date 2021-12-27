@@ -1,23 +1,20 @@
 Vue.component('botons', {
     template: //html
-    `
+    `    
     <div >
     <h4>Botons</h4>    
-      <button @click="prev()" >prev</button>
-      <button @click="next()" >next</button>
+      <button @click="current--">prev</button>
+      <button @click="current++" >next</button>  
+      {{current}}    
     </div>
     `,   
-    props: ['back', 'currentSentence'],
-    
-      methods: {
-        next(){
-          this.back = false;
-          this.currentSentence++;
-        },
-        prev(){
-          this.back = true;
-          this.currentSentence--;
-        }
-      },
-    }
-)
+    props: ['frasesEscena','sentencia'],    
+    data(){
+      return{
+        current: 1
+      }
+    },
+        mounted(){
+        this.$emit('currentSentence', this.current)
+      }
+})
