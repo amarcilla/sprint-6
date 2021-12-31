@@ -2,9 +2,9 @@ Vue.component('home', {
     template: `         
     <div >        
        <!-- Estem llegint el que ens esta retornant el fill:botons -->      
-       <botons  @currentSentence="sentence=$event" :seleccion="sentence" :num="numFrases"></botons>      
+       <botons  @currentSentence="sentence=$event" :seleccion="sentence" :num="numFrases" ></botons>      
         <div v-for="(frase,i) in frases" >                     
-          <div id=principal v-if="i=== sentence" v-bind:style="{ 'background-image': 'url(' + frase.imatge + ')' }">              
+          <div >              
               <escena v-if="i=== sentence" :frasesEscena="frases" :seleccion="sentence" @currentImatge="imatge=$event" ></escena>            
           </div>          
         </div>                                
@@ -31,7 +31,6 @@ Vue.component('home', {
                 }
             ],
             sentence: 0,
-            imatge:'',
             numFrases:4,
         };
     },

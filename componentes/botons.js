@@ -8,18 +8,25 @@ Vue.component('botons', {
     `,
   props: ['seleccion','num'],
   methods: {
-    next() {            
-        this.current++;        
-        this.$emit('currentSentence', this.current)      
+    next() {                    
+        let pantalla = document.querySelector('body');        
+        pantalla.style.background = "url('img/"+ (parseInt(this.seleccion) + 1 ) +".jpg')";
+        this.current++;
+        
+        this.$emit('currentSentence', this.current);
     },
-    prev() {
+    prev() {      
+      let pantalla = document.querySelector('body');        
+      pantalla.style.background = "url('img/"+ (parseInt(this.seleccion) + 1 ) +".jpg')";
       this.current--;
-      this.$emit('currentSentence', this.current)
+      this.$emit('currentSentence', this.current);
     }
   },
   data: function () {
     return {
-      current: ''
+      current: '',
+      seleccion: '',
+      num:''
     }
   }
 })
