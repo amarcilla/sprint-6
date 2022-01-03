@@ -15,5 +15,10 @@ Vue.component('escena', {
     </div>
     `,   
     props: ['frasesEscena','seleccion','num'],                  
-    },    
-)
+    beforeMount() {
+      // Abans de mostrar les frases, anem a possar el fons.
+      console.log(this.seleccion);
+      let pantalla = document.querySelector('body');        
+      pantalla.style.background = "url('img/"+ (parseInt(this.seleccion) + 1  ) +".jpg')";
+    }
+},)

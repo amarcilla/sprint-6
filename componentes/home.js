@@ -2,10 +2,11 @@ Vue.component('home', {
     template: `         
     <div >        
        <!-- Estem llegint el que ens esta retornant el fill:botons -->      
+       <!-- PAssem sentence i numFrases, per ocultar botons -->      
        <botons  @currentSentence="sentence=$event" :seleccion="sentence" :num="numFrases" ></botons>      
         <div v-for="(frase,i) in frases" >                     
           <div >              
-              <escena v-if="i=== sentence" :frasesEscena="frases" :seleccion="sentence" @currentImatge="imatge=$event" ></escena>            
+              <escena v-if="i=== sentence" :frasesEscena="frases" :seleccion="sentence"  ></escena>            
           </div>          
         </div>                                
     </div>
